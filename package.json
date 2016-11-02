@@ -1,0 +1,35 @@
+{
+  "name": "talkify-natural-classifier",
+  "version": "1.0.1",
+  "description": "Open Source NaturalNode/Natural NLP Classifier for Talkify",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+  },
+  "keywords": [
+    "natural",
+    "talkify",
+    "bot",
+    "classifier",
+    "nlp"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manthanhd/talkify-natural-classifier.git"
+  },
+  "author": "Manthan Dave <manthanhd@live.com> (https://www.manthanhd.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "coveralls": "^2.11.14",
+    "expect": "^1.20.2",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.1.2",
+    "mocha-lcov-reporter": "^1.2.0",
+    "mockery": "^2.0.0"
+  },
+  "dependencies": {
+    "natural": "^0.4.0",
+    "talkify-classifier": "^1.0.1"
+  }
+}
