@@ -126,4 +126,60 @@ describe('LogisticRegressionClassifier', function () {
             });
         });
     });
+
+    describe('getClassifications', function(){
+        it('gets classifications from underlying natural classifier', function(done) {
+            var mockClassifier = {
+                getClassifications: expect.createSpy().andCall(function(input) {
+                    expect(input).toBe('something');
+                    return [{label: 'hello', value: 0.56}];
+                })
+            };
+            expect.spyOn(mockClassifier, 'getClassifications');
+            var mockNatural = {
+                LogisticRegressionClassifier: function() {return mockClassifier}
+            };
+
+            mockery.registerMock('natural', mockNatural);
+
+            const LogisticRegressionClassifier = require('../lib/NaturalClassifier').LogisticRegressionClassifier;
+            new LogisticRegressionClassifier().getClassifications('something', function(err, classifications) {
+                expect(err).toNotExist();
+
+                expect(classifications).toExist();
+                expect(classifications[0].label).toBe('hello');
+                expect(classifications[0].value).toBe(0.56);
+                expect(mockClassifier.getClassifications).toHaveBeenCalled();
+                return done();
+            });
+        });
+
+        it('handles error when classifier throws errors on getClassifications', function(done) {
+            var mockClassifier = {
+                getClassifications: expect.createSpy().andCall(function(input) {
+                    expect(input).toBe('something');
+                    throw new TypeError('error yo');
+                })
+            };
+            expect.spyOn(mockClassifier, 'getClassifications');
+            var mockNatural = {
+                LogisticRegressionClassifier: function() {return mockClassifier}
+            };
+
+            mockery.registerMock('natural', mockNatural);
+
+            const LogisticRegressionClassifier = require('../lib/NaturalClassifier').LogisticRegressionClassifier;
+            new LogisticRegressionClassifier().getClassifications('something', function(err, classifications) {
+                expect(err).toExist();
+                expect(err).toBeA(TypeError);
+                expect(err.message).toBe('error yo');
+
+                expect(classifications).toExist();
+                expect(classifications[0].label).toBe(undefined);
+                expect(classifications[0].value).toBe(undefined);
+                expect(mockClassifier.getClassifications).toHaveBeenCalled();
+                return done();
+            });
+        });
+    })
 });

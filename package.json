@@ -1,6 +1,6 @@
 {
   "name": "talkify-natural-classifier",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Open Source NaturalNode/Natural NLP Classifier for Talkify",
   "main": "index.js",
   "scripts": {
