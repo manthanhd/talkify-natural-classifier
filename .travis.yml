@@ -6,11 +6,3 @@ after_success:
 branches:
   only:
   - master
-deploy:
-  on:
-    branch: master
-  provider: npm
-  skip_cleanup: true
-  email: manthanhd@live.com
-  api_key:
-    secure: Tp6gfkOfvEvDFqb4GN8wEurQM1Wt/kZE3Tqo8Vx/2lhytE87bhovAwQj6Xl2d8oH+RxZYOoRpxbMy/mY94m7bYNrfSy90Kgjp0GuoQqJTivy83EZw+wfW5eS97uqYC9omjOjL9dx4o/WzbsVGkIxJ3IKfHaGan2sUA54rkW320t9onUDSSyo3Kz4WEMa0hzt10q1UPksMYMEsEQxHNgWzycNIv4bTOSYE9kjfI/x7LHifAasqZRlfQzNbgmg0XzHM1Y3AaQSRXZCEpTOwayqHQwj4qxurfgAYe7erB8t/eKVht+IxJfqcjbEuzJHVVZBiMxUG2buL7aWLoXRUL/zHvUjq6JXvPe8TTJ80DIrceyGI/dmqzMycnZZDa9ZVGhEtaAVOK4mM2J+ZWdfzsL3OSx/QJ3f85C5WVL2oXbXrpl4Xf/berMSTn60o5GUfnBGBN6Ny8AurnUXsoecB19+GN7IBrRfsSEWpIM2uvIcmpM+7tc+0xQByhynJ6MhX/mzR0jIkacFfTW76CRnfiWnoPqFcHs2Oh80KE4LYZtN1RUx97KW+aEL7E8r13o/sGpy6xrVO9woHtDQurRzCIHhKeohSTjPgGeN0O8U4uSjzArlaNp0jq9Mc4mPiji7fw7dey6WOoU50Yo1oQ/naC5Y6evQOrAe0nKgb0ooGbtYgv8=
