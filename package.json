@@ -29,7 +29,7 @@
     "mockery": "^2.0.0"
   },
   "dependencies": {
-    "natural": "^0.4.0",
+    "natural": "^0.5.4",
     "talkify-classifier": "^1.0.2"
   }
 }
